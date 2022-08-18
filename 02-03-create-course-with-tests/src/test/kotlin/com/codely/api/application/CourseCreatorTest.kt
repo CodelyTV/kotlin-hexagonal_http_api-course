@@ -1,12 +1,13 @@
 package com.codely.api.application
 
 import com.codely.api.BaseTest
-import com.codely.api.domain.course.Course
-import com.codely.api.domain.course.CourseId
-import com.codely.api.domain.course.CourseName
-import com.codely.api.domain.course.CourseRepository
-import com.codely.api.domain.course.InvalidCourseIdException
-import com.codely.api.domain.course.InvalidCourseNameException
+import com.codely.course.domain.course.Course
+import com.codely.course.domain.course.CourseId
+import com.codely.course.domain.course.CourseName
+import com.codely.course.domain.course.CourseRepository
+import com.codely.course.domain.course.InvalidCourseIdException
+import com.codely.course.domain.course.InvalidCourseNameException
+import com.codely.course.application.CourseCreator
 import io.mockk.mockk
 import io.mockk.verify
 import java.time.LocalDateTime
@@ -54,7 +55,8 @@ class CourseCreatorTest : BaseTest() {
                 id = CourseId(UUID.fromString(id)),
                 name = CourseName(name),
                 createdAt = fixedDate
-            ))
+            )
+        )
         }
     }
 
