@@ -37,12 +37,14 @@ class CourseCreatorTest : BaseTest() {
     @Test
     fun `should fail with invalid id`() {
         givenFixedDate(fixedDate)
+
         assertThrows<InvalidCourseIdException> { courseCreator.create("Invalid", name) }
     }
 
     @Test
     fun `should fail with invalid name`() {
         givenFixedDate(fixedDate)
+
         assertThrows<InvalidCourseNameException> { courseCreator.create(id, "    ") }
     }
 
