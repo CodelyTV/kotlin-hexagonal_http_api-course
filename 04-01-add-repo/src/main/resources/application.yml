@@ -1,0 +1,3 @@
+database.connection:
+  username: ${DATABASE_USERNAME:empty-username}
+  password: ${DATABASE_PASSWORD:empty-password}
