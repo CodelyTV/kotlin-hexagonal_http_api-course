@@ -7,6 +7,6 @@ RUN gradle build
 FROM openjdk:11.0.16-jre-slim
 WORKDIR /app
 EXPOSE 8080
-COPY --from=builder /builder/build/libs/kotlin-api-skeleton-0.0.1.jar .
-CMD ["java", "-jar", "kotlin-api-skeleton-0.0.1.jar"]
+COPY --from=builder /builder/build/libs/03-01-dependency-injection-0.0.1.jar .
+CMD ["java", "-jar", "03-01-dependency-injection-0.0.1.jar"]
 
