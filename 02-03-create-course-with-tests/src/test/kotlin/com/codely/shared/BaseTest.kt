@@ -1,4 +1,4 @@
-package com.codely.api
+package com.codely.shared
 
 import io.mockk.every
 import io.mockk.mockkStatic

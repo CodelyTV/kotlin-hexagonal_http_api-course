@@ -1,6 +1,6 @@
-package com.codely.api.application
+package com.codely.course.application
 
-import com.codely.api.BaseTest
+import com.codely.shared.BaseTest
 import com.codely.course.domain.course.Course
 import com.codely.course.domain.course.CourseId
 import com.codely.course.domain.course.CourseName
