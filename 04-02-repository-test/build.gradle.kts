@@ -18,6 +18,26 @@ repositories {
     mavenCentral()
 }
 
+sourceSets {
+    create("test-integration") {
+        compileClasspath += sourceSets.main.get().output
+        runtimeClasspath += sourceSets.main.get().output
+    }
+}
+
+val testIntegrationImplementation: Configuration by configurations.getting {
+    extendsFrom(configurations.testImplementation.get())
+}
+
+val integrationTest = task<Test>("integrationTest") {
+    description = "Runs integration tests."
+    group = "verification"
+    testClassesDirs = sourceSets["test-integration"].output.classesDirs
+    classpath = sourceSets["test-integration"].runtimeClasspath
+    useJUnitPlatform()
+    shouldRunAfter("test")
+}
+
 dependencies {
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
     implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -34,6 +54,9 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.mockk:mockk:1.12.5")
+    testIntegrationImplementation("org.testcontainers:testcontainers:1.15.2")
+    testIntegrationImplementation("org.testcontainers:junit-jupiter:1.15.2")
+    testIntegrationImplementation("org.testcontainers:postgresql:1.15.2")
 }
 
 tasks.withType<KotlinCompile> {
@@ -62,6 +85,7 @@ spotless {
 }
 
 tasks.check {
+    dependsOn(integrationTest)
     dependsOn(tasks.spotlessCheck)
 }
 

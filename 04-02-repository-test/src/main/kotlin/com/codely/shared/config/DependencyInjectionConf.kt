@@ -11,4 +11,3 @@ class DependencyInjectionConf {
     @Bean
     fun courseCreator(courseRepository: CourseRepository) = CourseCreator(courseRepository)
 }
-
