@@ -32,13 +32,14 @@ class PostgreCourseRepositoryTest {
 
     @Test
     fun `should save a course`() {
-        val courseToSave = Course(CourseId.fromString("13590efb-c181-4c5f-9f95-b768abde13e2"), CourseName("Test"), LocalDateTime.now())
+        val courseId = "13590efb-c181-4c5f-9f95-b768abde13e2"
+        val courseToSave = Course(CourseId.fromString(courseId), CourseName("Test"), LocalDateTime.now())
         repository.save(courseToSave)
 
         val courseFromDb = jdbcTemplate.queryForObject(
             "select * from course where id=?",
             mapRow(),
-            "13590efb-c181-4c5f-9f95-b768abde13e2"
+            courseId
         )
 
         assertEquals(courseToSave, courseFromDb)
