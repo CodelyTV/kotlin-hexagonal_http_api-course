@@ -1,3 +1,12 @@
-database.connection:
-  username: ${DATABASE_USERNAME:empty-username}
-  password: ${DATABASE_PASSWORD:empty-password}
+spring:
+  datasource:
+    url: "jdbc:postgresql://${POSTGRE_URL:localhost}:${POSTGRE_PORT:5432}/course_database"
+    username: ${POSTGRE_USERNAME:course_username}
+    password: ${POSTGRE_PASSWORD:course_password}
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
