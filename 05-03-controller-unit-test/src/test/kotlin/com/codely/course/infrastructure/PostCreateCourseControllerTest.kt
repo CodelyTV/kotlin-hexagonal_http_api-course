@@ -30,7 +30,7 @@ class PostCreateCourseControllerTest {
 
         val response = controller.execute(CreateCourseRequest("03ef970b-719d-49c5-8d80-7dc762fe4be6", "Test"))
 
-        assertEquals(ResponseEntity.ok().body(""), response)
+        assertEquals(ResponseEntity.ok().build(), response)
     }
 
     @Test
@@ -63,6 +63,6 @@ class PostCreateCourseControllerTest {
 
         assertEquals(ResponseEntity
             .status(HttpStatus.INTERNAL_SERVER_ERROR)
-            .body("Something went bad"), response)
+            .build(), response)
     }
 }
