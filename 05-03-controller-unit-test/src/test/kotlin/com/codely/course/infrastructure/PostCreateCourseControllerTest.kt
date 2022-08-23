@@ -41,7 +41,7 @@ class PostCreateCourseControllerTest {
 
         assertEquals(ResponseEntity
             .status(HttpStatus.BAD_REQUEST)
-            .body("The id <1> is not a valid course id"), response)
+            .body("The course id is not valid"), response)
     }
 
     @Test
@@ -52,7 +52,7 @@ class PostCreateCourseControllerTest {
 
         assertEquals(ResponseEntity
             .status(HttpStatus.BAD_REQUEST)
-            .body("The name <Invalid> is not a valid course name"), response)
+            .body("The course name is not valid"), response)
     }
 
     @Test
