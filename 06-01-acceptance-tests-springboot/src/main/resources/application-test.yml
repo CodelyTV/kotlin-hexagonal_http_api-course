@@ -1,12 +1,9 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:AZ;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    username: sa
-    password:
-  flyway:
-    url: jdbc:h2:mem:AZ;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    user: sa
-    password:
+    url: jdbc:tc:postgresql:14.5:///course_database
+    username: course_username
+    password: course_password
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
   jpa:
     properties:
       hibernate:

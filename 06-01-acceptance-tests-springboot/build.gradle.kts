@@ -48,15 +48,14 @@ dependencies {
     implementation("javax.inject:javax.inject:1")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.flywaydb:flyway-core:8.5.7")
-    implementation("com.h2database:h2")
-    runtimeOnly("org.postgresql:postgresql:42.3.6")
+    implementation("org.postgresql:postgresql:42.3.6")
 
     testImplementation("org.jetbrains.kotlin:kotlin-test")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.mockk:mockk:1.12.5")
-    testIntegrationImplementation("org.testcontainers:testcontainers:1.15.2")
-    testIntegrationImplementation("org.testcontainers:junit-jupiter:1.15.2")
-    testIntegrationImplementation("org.testcontainers:postgresql:1.15.2")
+    testIntegrationImplementation("org.testcontainers:testcontainers:1.17.3")
+    testIntegrationImplementation("org.testcontainers:junit-jupiter:1.17.3")
+    testIntegrationImplementation("org.testcontainers:postgresql:1.17.3")
 }
 
 tasks.withType<KotlinCompile> {
