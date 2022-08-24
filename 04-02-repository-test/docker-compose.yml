@@ -6,8 +6,8 @@ services:
     image: postgres
     restart: always
     environment:
-      POSTGRES_USER: petscare
-      POSTGRES_PASSWORD: petscare
-      POSTGRES_DB: petscare
+      POSTGRES_USER: course_username
+      POSTGRES_PASSWORD: course_password
+      POSTGRES_DB: course_database
     ports:
       - "5432:5432"
