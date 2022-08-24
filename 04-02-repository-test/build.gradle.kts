@@ -47,7 +47,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("javax.inject:javax.inject:1")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.flywaydb:flyway-core:8.5.13") //not upgraded because https://stackoverflow.com/questions/73068931/how-to-upgrade-from-flyway-5-2-4-to-9-0-1
+    implementation("org.flywaydb:flyway-core:8.5.13") // not upgraded because https://stackoverflow.com/questions/73068931/how-to-upgrade-from-flyway-5-2-4-to-9-0-1
     implementation("org.postgresql:postgresql:42.4.2")
 
     testImplementation("org.jetbrains.kotlin:kotlin-test")
