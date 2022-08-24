@@ -27,9 +27,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("javax.inject:javax.inject:1")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.flywaydb:flyway-core:8.5.7")
+    implementation("org.flywaydb:flyway-core:8.5.13")
     implementation("com.h2database:h2")
-    runtimeOnly("org.postgresql:postgresql:42.3.6")
+    implementation("org.postgresql:postgresql:42.4.2")
 
     testImplementation("org.jetbrains.kotlin:kotlin-test")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
