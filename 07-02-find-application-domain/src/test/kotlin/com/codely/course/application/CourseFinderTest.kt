@@ -3,18 +3,16 @@ package com.codely.course.application
 import com.codely.course.application.find.CourseFinder
 import com.codely.course.application.find.CourseResponse
 import com.codely.course.domain.CourseMother
-import com.codely.course.domain.course.Course
 import com.codely.course.domain.course.CourseId
-import com.codely.course.domain.course.CourseName
 import com.codely.course.domain.course.CourseNotFoundException
 import com.codely.course.domain.course.CourseRepository
 import io.mockk.every
 import io.mockk.mockk
+import java.time.LocalDateTime
+import kotlin.test.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
-import java.time.LocalDateTime
-import kotlin.test.assertEquals
 
 class CourseFinderTest {
 
@@ -49,11 +47,9 @@ class CourseFinderTest {
 
     private fun `then the found course is equals to expected`(actualCourse: CourseResponse) {
         val expected = CourseResponse(
-            Course(
-                id = CourseId.fromString(courseId),
-                name = CourseName(courseName),
-                createdAt = courseCreatedAt
-            )
+            id = courseId,
+            name = courseName,
+            createdAt = courseCreatedAt
         )
 
         assertEquals(expected, actualCourse)
@@ -76,5 +72,4 @@ class CourseFinderTest {
         private const val courseName = "Course Finder Test Name"
         private val courseCreatedAt = LocalDateTime.parse("2022-08-31T09:00:00")
     }
-
 }
