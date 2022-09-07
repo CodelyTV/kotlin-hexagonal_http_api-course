@@ -26,7 +26,7 @@ class GetFindCourseAcceptanceTestRestAssure : BaseAcceptanceTest() {
     @Sql("classpath:db/fixtures/find/add-course-data.sql")
     fun `should find course successfully with fixture`() {
         When {
-            get("/course/${course.id}")
+            get("/course/${course.id.value}")
         } Then {
             statusCode(HttpStatus.OK.value())
         } Extract {
@@ -36,12 +36,12 @@ class GetFindCourseAcceptanceTestRestAssure : BaseAcceptanceTest() {
 
     @Test
     fun `should find course successfully with course creation`() {
-        val response = Given {
+        Given {
             `an existin course`()
             contentType(ContentType.JSON)
             body("")
         } When {
-            get("/course/${course.id}")
+            get("/course/${course.id.value}")
         } Then {
             statusCode(HttpStatus.OK.value())
         } Extract {
@@ -64,7 +64,7 @@ class GetFindCourseAcceptanceTestRestAssure : BaseAcceptanceTest() {
                 {
                     "id": "f2fe1e4e-1e8f-493b-ac67-2c88090cae0a",
                     "name": "Saved course",
-                    "created_at": "2022-08-31T09:07:36.155Z"
+                    "createdAt": "2022-08-31T09:07:36"
                 }
             """.trimIndent()
     }
