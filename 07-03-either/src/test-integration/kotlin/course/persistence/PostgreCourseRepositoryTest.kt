@@ -5,6 +5,7 @@ import com.codely.course.domain.course.CourseId
 import com.codely.course.domain.course.CourseName
 import com.codely.course.infrastructure.persistence.PostgreCourseRepository
 import com.codely.shared.Application
+import com.codely.shared.common.Right
 import java.time.LocalDateTime
 import kotlin.test.assertEquals
 import org.junit.jupiter.api.Test
@@ -30,6 +31,6 @@ class PostgreCourseRepositoryTest : BaseIntegrationTest() {
 
         val courseFromDb = repository.find(CourseId.fromString(courseId))
 
-        assertEquals(Result.success(courseToSave), courseFromDb)
+        assertEquals(Right(courseToSave), courseFromDb)
     }
 }

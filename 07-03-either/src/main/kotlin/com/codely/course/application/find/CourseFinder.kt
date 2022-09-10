@@ -1,17 +1,20 @@
 package com.codely.course.application.find
 
 import com.codely.course.domain.course.Course
+import com.codely.course.domain.course.CourseError
 import com.codely.course.domain.course.CourseId
 import com.codely.course.domain.course.CourseRepository
+import com.codely.shared.common.Either
+import com.codely.shared.common.Left
+import com.codely.shared.common.Right
 import java.time.LocalDateTime
 
 class CourseFinder(private val courseRepository: CourseRepository) {
-    fun execute(courseId: String): Result<CourseResponse> =
+    fun execute(courseId: String): Either<CourseError, CourseResponse> =
         CourseId.fromString(courseId).let { id ->
-            val course = courseRepository.find(id)
-                course.fold(
-                onSuccess = { Result.success(CourseResponse.fromCourse(it)) },
-                onFailure = { Result.failure(it) }
+            courseRepository.find(id).flatMap(
+                rightF = { Right(CourseResponse.fromCourse(it)) },
+                leftF = { Left(it) }
             )
         }
 }

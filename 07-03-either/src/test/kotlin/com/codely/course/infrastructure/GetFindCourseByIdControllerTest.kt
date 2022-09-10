@@ -3,8 +3,11 @@ package com.codely.course.infrastructure
 import com.codely.course.application.find.CourseFinder
 import com.codely.course.application.find.CourseResponse
 import com.codely.course.domain.course.CourseId
-import com.codely.course.domain.course.CourseNotFoundException
+import com.codely.course.domain.course.CourseNotFoundError
 import com.codely.course.infrastructure.rest.find.GetFindCourseByIdController
+import com.codely.shared.common.Either
+import com.codely.shared.common.Left
+import com.codely.shared.common.Right
 import io.mockk.every
 import io.mockk.mockk
 import java.time.LocalDateTime
@@ -34,14 +37,14 @@ class GetFindCourseByIdControllerTest {
         `then a successful response is returned`(response)
     }
 
-    private fun `then a successful response is returned`(actualResponse: ResponseEntity<CourseResponse>) {
-        assertEquals(ResponseEntity(course, HttpStatus.OK), actualResponse)
+    private fun `then a successful response is returned`(actualResponse: Either<ResponseEntity<String>, ResponseEntity<CourseResponse>>) {
+        assertEquals(Right(ResponseEntity(course, HttpStatus.OK)), actualResponse)
     }
 
     private fun `when a course is requested by id`() = controller.execute(courseId)
 
     private fun `given a course response`() {
-        every { courseFinder.execute(any()) } returns Result.success(course)
+        every { courseFinder.execute(any()) } returns Right(course)
     }
 
     @Test
@@ -53,19 +56,17 @@ class GetFindCourseByIdControllerTest {
         `then a not found response is returned`(response)
     }
 
-    private fun `then a not found response is returned`(actualResponse: ResponseEntity<CourseResponse>) {
+    private fun `then a not found response is returned`(actualResponse: Either<ResponseEntity<String>, ResponseEntity<CourseResponse>>) {
         assertEquals(
-            ResponseEntity.status(HttpStatus.NOT_FOUND).build(),
+            Left(ResponseEntity.status(HttpStatus.NOT_FOUND).build()),
             actualResponse
         )
     }
 
     private fun `given there is no course found`() {
-        every { courseFinder.execute(any()) } returns Result.failure(
-            CourseNotFoundException(
-                CourseId.fromString(
-                    courseId
-                )
+        every { courseFinder.execute(any()) } returns Left(
+            CourseNotFoundError(
+                CourseId.fromString(courseId)
             )
         )
     }

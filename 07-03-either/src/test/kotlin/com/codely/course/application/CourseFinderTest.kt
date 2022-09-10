@@ -3,16 +3,19 @@ package com.codely.course.application
 import com.codely.course.application.find.CourseFinder
 import com.codely.course.application.find.CourseResponse
 import com.codely.course.domain.CourseMother
-import com.codely.course.domain.course.Course
+import com.codely.course.domain.course.CourseError
 import com.codely.course.domain.course.CourseId
-import com.codely.course.domain.course.CourseNotFoundException
+import com.codely.course.domain.course.CourseNotFoundError
 import com.codely.course.domain.course.CourseRepository
+import com.codely.shared.common.Either
+import com.codely.shared.common.Left
+import com.codely.shared.common.Right
 import io.mockk.every
 import io.mockk.mockk
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
 import java.time.LocalDateTime
 import kotlin.test.assertEquals
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 
 class CourseFinderTest {
 
@@ -43,22 +46,21 @@ class CourseFinderTest {
         `then the result is a failure with no found exception`(actualResult)
     }
 
-    private fun `then the result is a failure with no found exception`(actualResult: Result<CourseResponse>) {
-        val expected = Result.failure<CourseResponse>(
-            CourseNotFoundException(courseId)
+    private fun `then the result is a failure with no found exception`(actualResult: Either<CourseError, CourseResponse>) {
+        val expected = Left<CourseError, CourseResponse>(
+            CourseNotFoundError(courseId)
         )
         assertEquals(expected, actualResult)
     }
 
     private fun `given no course is saved`() {
-        val result = Result.failure<Course>(
-            CourseNotFoundException(courseId)
+        every { courseRepository.find(courseId) } returns Left(
+            CourseNotFoundError(courseId)
         )
-        every { courseRepository.find(courseId) } returns result
     }
 
-    private fun `then the found course is equals to expected`(actualCourse: Result<CourseResponse>) {
-        val expected = Result.success(
+    private fun `then the found course is equals to expected`(actualCourse: Either<CourseError, CourseResponse>) {
+        val expected = Right<CourseError, CourseResponse>(
             CourseResponse(
                 id = courseId.value.toString(),
                 name = courseName,
@@ -69,7 +71,7 @@ class CourseFinderTest {
         assertEquals(expected, actualCourse)
     }
 
-    private fun `when the finder is executed`(): Result<CourseResponse> {
+    private fun `when the finder is executed`(): Either<CourseError, CourseResponse> {
         return courseFinder.execute(courseId.value.toString())
     }
 
@@ -80,10 +82,8 @@ class CourseFinderTest {
             name = courseName,
             createdAt = courseCreatedAt
         )
-        val result = Result.success(course)
 
-
-        every { courseRepository.find(course.id) } returns result
+        every { courseRepository.find(course.id) } returns Right(course)
     }
 
     companion object {
