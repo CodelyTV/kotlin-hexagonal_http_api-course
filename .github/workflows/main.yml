@@ -1,0 +1,30 @@
+name: Kotlin hexagonal architect api
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        directory: [ 01-01-healthcheck/, 01-02-healthcheck-actuator/, 02-01-create-course/, 02-02-create-course-with-validations/, 02-03-create-course-with-tests/, 03-01-dependency-injection/,
+                     03-02-manage-config-secrets/, 04-01-add-repo/, 04-02-repository-test/, 05-01-add-controller/, 05-02-error-handling/, 05-03-controller-unit-test/,
+                     06-01-acceptance-tests-springboot/, 06-02-rest-assure/, 07-01-find-course-acceptance-controller/, 07-02-find-application-domain/, 07-03-either/, 07-04-result/ ]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+        working-directory: ${{matrix.directory}}
+      - name: Build with Gradle
+        run: ./gradlew build
+        working-directory: ${{matrix.directory}}
