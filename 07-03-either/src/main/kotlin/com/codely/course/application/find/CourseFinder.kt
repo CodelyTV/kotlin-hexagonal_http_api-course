@@ -12,9 +12,9 @@ import java.time.LocalDateTime
 class CourseFinder(private val courseRepository: CourseRepository) {
     fun execute(courseId: String): Either<CourseError, CourseResponse> =
         CourseId.fromString(courseId).let { id ->
-            courseRepository.find(id).flatMap(
-                rightF = { Right(CourseResponse.fromCourse(it)) },
-                leftF = { Left(it) }
+            courseRepository.find(id).fold(
+                ifRight = { Right(CourseResponse.fromCourse(it)) },
+                ifLeft = { Left(it) }
             )
         }
 }

@@ -47,7 +47,7 @@ class CourseFinderTest {
     }
 
     private fun `then the result is a failure with no found exception`(actualResult: Either<CourseError, CourseResponse>) {
-        val expected = Left<CourseError, CourseResponse>(
+        val expected = Left<CourseError>(
             CourseNotFoundError(courseId)
         )
         assertEquals(expected, actualResult)
@@ -60,7 +60,7 @@ class CourseFinderTest {
     }
 
     private fun `then the found course is equals to expected`(actualCourse: Either<CourseError, CourseResponse>) {
-        val expected = Right<CourseError, CourseResponse>(
+        val expected = Right<CourseResponse>(
             CourseResponse(
                 id = courseId.value.toString(),
                 name = courseName,

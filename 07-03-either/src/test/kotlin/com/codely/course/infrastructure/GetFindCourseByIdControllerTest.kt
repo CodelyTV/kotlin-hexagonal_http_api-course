@@ -5,7 +5,6 @@ import com.codely.course.application.find.CourseResponse
 import com.codely.course.domain.course.CourseId
 import com.codely.course.domain.course.CourseNotFoundError
 import com.codely.course.infrastructure.rest.find.GetFindCourseByIdController
-import com.codely.shared.common.Either
 import com.codely.shared.common.Left
 import com.codely.shared.common.Right
 import io.mockk.every
@@ -37,8 +36,8 @@ class GetFindCourseByIdControllerTest {
         `then a successful response is returned`(response)
     }
 
-    private fun `then a successful response is returned`(actualResponse: Either<ResponseEntity<String>, ResponseEntity<CourseResponse>>) {
-        assertEquals(Right(ResponseEntity(course, HttpStatus.OK)), actualResponse)
+    private fun `then a successful response is returned`(actualResponse: ResponseEntity<CourseResponse>) {
+        assertEquals(ResponseEntity<CourseResponse>(course, HttpStatus.OK), actualResponse)
     }
 
     private fun `when a course is requested by id`() = controller.execute(courseId)
@@ -56,9 +55,9 @@ class GetFindCourseByIdControllerTest {
         `then a not found response is returned`(response)
     }
 
-    private fun `then a not found response is returned`(actualResponse: Either<ResponseEntity<String>, ResponseEntity<CourseResponse>>) {
+    private fun `then a not found response is returned`(actualResponse: ResponseEntity<CourseResponse>) {
         assertEquals(
-            Left(ResponseEntity.status(HttpStatus.NOT_FOUND).build()),
+            ResponseEntity.status(HttpStatus.NOT_FOUND).build(),
             actualResponse
         )
     }

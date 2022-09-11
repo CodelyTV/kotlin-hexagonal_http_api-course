@@ -1,17 +1,14 @@
 package com.codely.shared.common
 
-sealed class Either<L, R> {
-    abstract fun <ML, MR> flatMap(leftF: (L) -> Either<ML, MR>, rightF: (R) -> Either<ML, MR>): Either<ML, MR>
+sealed class Either<out L, out R> {
+
+    abstract fun <C> fold(ifLeft: (L) -> C, ifRight: (R) -> C): C
 }
 
-data class Right<L, R>(val value: R) : Either<L, R>() {
-
-    override fun <ML, MR> flatMap(leftF: (L) -> Either<ML, MR>, rightF: (R) -> Either<ML, MR>) = rightF(value)
+data class Right<out R>(val value: R) : Either<Nothing, R>() {
+    override fun <C> fold(ifLeft: (Nothing) -> C, ifRight: (R) -> C): C = ifRight(value)
 }
 
-data class Left<L, R>(
-    val value: L
-) : Either<L, R>() {
-
-    override fun <ML, MR> flatMap(leftF: (L) -> Either<ML, MR>, rightF: (R) -> Either<ML, MR>) = leftF(value)
+data class Left<out L>(val value: L) : Either<L, Nothing>() {
+    override fun <C> fold(ifLeft: (L) -> C, ifRight: (Nothing) -> C): C = ifLeft(value)
 }
