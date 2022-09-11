@@ -59,11 +59,3 @@ spotless {
 tasks.check {
     dependsOn(tasks.spotlessCheck)
 }
-
-tasks.findByName("bootJar")?.apply {
-    enabled = false
-}
-
-tasks.findByName("jar")?.apply {
-    enabled = true
-}

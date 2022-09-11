@@ -1,7 +1,6 @@
-package com.codely.application
+package com.codely.course.application
 
-import com.codely.BaseTest
-import com.codely.course.application.CourseCreator
+import com.codely.course.BaseTest
 import com.codely.course.domain.course.Course
 import com.codely.course.domain.course.CourseId
 import com.codely.course.domain.course.CourseName

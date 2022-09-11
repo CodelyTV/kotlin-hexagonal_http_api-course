@@ -1,4 +1,4 @@
-package com.codely
+package com.codely.course
 
 import io.mockk.every
 import io.mockk.mockkStatic

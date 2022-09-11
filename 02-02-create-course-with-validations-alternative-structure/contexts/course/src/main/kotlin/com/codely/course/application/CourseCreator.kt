@@ -1,9 +1,9 @@
-package com.codely.application
+package com.codely.course.application
 
-import com.codely.domain.course.Course
-import com.codely.domain.course.CourseId
-import com.codely.domain.course.CourseName
-import com.codely.domain.course.CourseRepository
+import com.codely.course.domain.Course
+import com.codely.course.domain.CourseId
+import com.codely.course.domain.CourseName
+import com.codely.course.domain.CourseRepository
 import java.time.LocalDateTime
 
 class CourseCreator(private val repository: CourseRepository) {

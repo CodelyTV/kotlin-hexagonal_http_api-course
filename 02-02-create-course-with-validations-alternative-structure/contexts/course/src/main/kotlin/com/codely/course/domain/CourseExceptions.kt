@@ -1,4 +1,4 @@
-package com.codely.domain.course
+package com.codely.course.domain
 
 sealed class CourseException(override val message: String, override val cause: Throwable? = null) : RuntimeException(message, cause)
 

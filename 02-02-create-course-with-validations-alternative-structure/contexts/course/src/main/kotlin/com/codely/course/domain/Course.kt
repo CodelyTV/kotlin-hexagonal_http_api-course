@@ -1,4 +1,4 @@
-package com.codely.domain.course
+package com.codely.course.domain
 
 import java.time.LocalDateTime
 import java.util.UUID

@@ -1,4 +1,4 @@
-package com.codely.domain
+package com.codely.course.domain
 
 interface CourseRepository {
     fun save(course: Course)
