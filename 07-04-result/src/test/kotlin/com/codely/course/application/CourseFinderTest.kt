@@ -9,10 +9,10 @@ import com.codely.course.domain.course.CourseNotFoundException
 import com.codely.course.domain.course.CourseRepository
 import io.mockk.every
 import io.mockk.mockk
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
 import java.time.LocalDateTime
 import kotlin.test.assertEquals
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 
 class CourseFinderTest {
 
@@ -81,7 +81,6 @@ class CourseFinderTest {
             createdAt = courseCreatedAt
         )
         val result = Result.success(course)
-
 
         every { courseRepository.find(course.id) } returns result
     }
