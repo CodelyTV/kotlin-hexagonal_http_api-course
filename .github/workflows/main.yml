@@ -8,9 +8,9 @@ on:
 
 jobs:
   build:
-  strategy:
-    matrix:
-      directory: [01-01-healthcheck, 01-02-healthcheck-actuator]
+    strategy:
+      matrix:
+        directory: [01-01-healthcheck, 01-02-healthcheck-actuator]
     runs-on: ubuntu-latest
 
     steps:
