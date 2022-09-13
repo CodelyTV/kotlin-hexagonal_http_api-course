@@ -4,6 +4,7 @@ import com.codely.course.domain.Course
 import com.codely.course.domain.CourseId
 import com.codely.course.domain.CourseName
 import com.codely.course.infrastructure.persistence.PostgreCourseRepository
+import com.codely.shared.persistence.BaseIntegrationTest
 import java.sql.ResultSet
 import java.time.LocalDateTime
 import java.util.UUID
@@ -14,7 +15,6 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.RowMapper
-import com.codely.shared.persistence.BaseIntegrationTest
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
