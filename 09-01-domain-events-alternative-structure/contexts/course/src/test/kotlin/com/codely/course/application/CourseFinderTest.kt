@@ -1,10 +1,10 @@
 package com.codely.course.application
 
+import com.codely.common.course.CourseMother
 import com.codely.course.application.find.CourseFinder
 import com.codely.course.application.find.CourseResponse
 import com.codely.course.domain.Course
 import com.codely.course.domain.CourseId
-import com.codely.course.domain.CourseMother
 import com.codely.course.domain.CourseNotFoundException
 import com.codely.course.domain.CourseRepository
 import io.mockk.every
@@ -60,7 +60,7 @@ class CourseFinderTest {
     private fun `then the found course is equals to expected`(actualCourse: Result<CourseResponse>) {
         val expected = Result.success(
             CourseResponse(
-                id = courseId.value.toString(),
+                id = id,
                 name = courseName,
                 createdAt = courseCreatedAt
             )
@@ -70,13 +70,13 @@ class CourseFinderTest {
     }
 
     private fun `when the finder is executed`(): Result<CourseResponse> {
-        return courseFinder.execute(courseId.value.toString())
+        return courseFinder.execute(id)
     }
 
     private fun `given an saved course`() {
 
         val course = CourseMother.sample(
-            id = courseId,
+            id = id,
             name = courseName,
             createdAt = courseCreatedAt
         )
@@ -86,7 +86,8 @@ class CourseFinderTest {
     }
 
     companion object {
-        private val courseId = CourseId.fromString("7ab75530-5da7-4b4a-b083-a779dd6c759e")
+        private const val id = "7ab75530-5da7-4b4a-b083-a779dd6c759e"
+        private val courseId = CourseId.fromString(id)
         private const val courseName = "Course Finder Test Name"
         private val courseCreatedAt = LocalDateTime.parse("2022-08-31T09:00:00")
     }
