@@ -2,6 +2,7 @@ package com.codely.course.persistence
 
 import com.codely.common.Left
 import com.codely.common.Right
+import com.codely.common.course.CourseMother
 import com.codely.course.domain.Course
 import com.codely.course.domain.CourseCannotBeFoundError
 import com.codely.course.domain.CourseId
@@ -26,7 +27,7 @@ class PostgreCourseRepositoryTest : BaseIntegrationTest() {
     @Test
     fun `should save a course`() {
         val courseId = "13590efb-c181-4c5f-9f95-b768abde13e2"
-        val courseToSave = Course(CourseId.fromString(courseId), CourseName("Test"), LocalDateTime.now())
+        val courseToSave = CourseMother.sample(id = courseId)
         repository.save(courseToSave)
 
         val courseFromDb = repository.find(CourseId.fromString(courseId))
