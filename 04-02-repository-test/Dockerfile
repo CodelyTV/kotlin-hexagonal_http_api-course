@@ -2,7 +2,7 @@ FROM gradle:7.5.0-jdk11-alpine as builder
 USER root
 WORKDIR /builder
 ADD . /builder
-RUN gradle build
+RUN gradle assemble
 
 FROM openjdk:11.0.16-jre-slim
 WORKDIR /app

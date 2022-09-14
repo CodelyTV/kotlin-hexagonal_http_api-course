@@ -1,8 +1,5 @@
-# Use postgres/example user/password credentials
-version: '3.1'
-
+version: "3.8"
 services:
-
   db:
     image: postgres
     restart: always
@@ -12,3 +9,16 @@ services:
       POSTGRES_DB: course_database
     ports:
       - "5432:5432"
+    expose:
+      - 5432
+  application:
+    build: .
+    container_name: kotlin_course
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    expose:
+      - 8080
+    env_file:
+      - .env
