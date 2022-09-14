@@ -4,12 +4,12 @@ import com.codely.course.application.CourseCreator
 import com.codely.course.domain.CourseException
 import com.codely.course.domain.InvalidCourseIdException
 import com.codely.course.domain.InvalidCourseNameException
+import java.net.URI
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
-import java.net.URI
 
 @RestController
 class PostCreateCourseController(private val courseCreator: CourseCreator) {

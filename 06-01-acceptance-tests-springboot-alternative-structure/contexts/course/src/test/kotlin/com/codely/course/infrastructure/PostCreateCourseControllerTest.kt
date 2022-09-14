@@ -7,12 +7,12 @@ import com.codely.course.infrastructure.rest.CreateCourseRequest
 import com.codely.course.infrastructure.rest.PostCreateCourseController
 import io.mockk.every
 import io.mockk.mockk
+import java.net.URI
 import kotlin.test.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
-import java.net.URI
 
 class PostCreateCourseControllerTest {
 

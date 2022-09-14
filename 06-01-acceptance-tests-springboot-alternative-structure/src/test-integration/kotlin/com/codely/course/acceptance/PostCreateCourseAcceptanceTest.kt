@@ -27,7 +27,7 @@ class PostCreateCourseAcceptanceTest : BaseAcceptanceTest() {
                }     
            """.trimIndent()
                 )
-        ).andExpect(MockMvcResultMatchers.status().isOk)
+        ).andExpect(MockMvcResultMatchers.status().isCreated)
             .andExpect {
                 assertEquals("", it.response.contentAsString)
             }

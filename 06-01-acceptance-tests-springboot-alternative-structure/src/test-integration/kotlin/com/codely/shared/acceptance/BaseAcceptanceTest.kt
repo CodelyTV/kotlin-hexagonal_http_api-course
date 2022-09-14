@@ -21,7 +21,7 @@ class BaseAcceptanceTest {
     companion object {
         private const val POSTGRES_PORT = 5432
         val environment: DockerComposeContainer<*> =
-            DockerComposeContainer(File("docker-compose.yml"))
+            DockerComposeContainer(File("docker-compose-test.yml"))
                 .withExposedService("db", POSTGRES_PORT, Wait.forListeningPort())
                 .withLocalCompose(true)
     }
