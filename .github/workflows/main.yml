@@ -10,16 +10,9 @@ jobs:
   build:
     strategy:
       matrix:
-        directory: [ 01-01-healthcheck/, 01-02-healthcheck-actuator/, 02-01-create-course-alternative-structure/, 02-01-create-course/, 02-02-create-course-with-validations-alternative-structure/, 
-          02-02-create-course-with-validations/, 02-03-create-course-with-tests-alternative-structure/, 02-03-create-course-with-tests/, 03-01-dependency-injection-alternative-structure/, 
-          03-01-dependency-injection/, 03-02-manage-config-secrets-alternative-structure/, 03-02-manage-config-secrets/, 04-01-add-repo-alternative-structure/, 04-01-add-repo/, 
-          04-02-repository-test-alternative-structure/, 04-02-repository-test/, 05-01-add-controller-alternative-structure/, 05-01-add-controller/, 
-          05-02-error-handling-alternative-structure/, 05-02-error-handling/, 05-03-controller-unit-test-alternative-structure/, 05-03-controller-unit-test/, 
-          06-01-acceptance-tests-springboot-alternative-structure/, 06-01-acceptance-tests-springboot/, 06-02-rest-assure-alternative-structure/, 06-02-rest-assure/, 
-          07-01-find-course-acceptance-controller-alternative-structure/, 07-01-find-course-acceptance-controller/, 07-02-find-application-domain-alternative-structure/, 
-          07-02-find-application-domain/, 07-03-either-alternative-structure/, 07-03-either/, 07-04-result-alternative-structure/, 07-04-result/, 
-          08-01-graceful-shutdown-alternative-structure/, 08-01-graceful-shutdown/, 08-02-deploy-api-alternative-structure/, 08-02-deploy-api/, 09-01-domain-events-alternative-structure/, 
-          09-01-domain-events/ ]
+        directory: [ 01-01-healthcheck/, 01-02-healthcheck-actuator/, 02-01-create-course/, 02-02-create-course-with-validations/, 02-03-create-course-with-tests/, 03-01-dependency-injection/, 03-02-manage-config-secrets/, 04-01-add-repo/,
+          04-02-repository-test/, 05-01-add-controller/, 05-02-error-handling/, 05-03-controller-unit-test/, 06-01-acceptance-tests-springboot/, 06-02-rest-assure/, 07-01-find-course-acceptance-controller/, 07-02-find-application-domain/,
+          07-03-either/, 07-04-result/, 08-01-graceful-shutdown/, 08-02-deploy-api/, 09-01-domain-events/ ]
     runs-on: ubuntu-latest
 
     steps:
