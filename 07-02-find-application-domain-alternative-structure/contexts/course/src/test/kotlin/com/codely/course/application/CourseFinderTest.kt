@@ -1,10 +1,10 @@
 package com.codely.course.application
 
+import com.codely.common.course.CourseMother
 import com.codely.course.BaseTest
 import com.codely.course.application.find.CourseFinder
 import com.codely.course.application.find.CourseResponse
 import com.codely.course.domain.CourseId
-import com.codely.course.domain.CourseMother
 import com.codely.course.domain.CourseNotFoundException
 import com.codely.course.domain.CourseRepository
 import io.mockk.every

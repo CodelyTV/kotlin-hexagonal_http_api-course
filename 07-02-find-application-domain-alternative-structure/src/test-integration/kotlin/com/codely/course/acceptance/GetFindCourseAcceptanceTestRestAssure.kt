@@ -1,8 +1,6 @@
 package com.codely.course.acceptance
 
-import com.codely.course.domain.Course
-import com.codely.course.domain.CourseId
-import com.codely.course.domain.CourseName
+import com.codely.common.course.CourseMother
 import com.codely.course.infrastructure.persistence.PostgreCourseRepository
 import com.codely.shared.acceptance.BaseAcceptanceTest
 import com.codely.shared.acceptance.isEqualToJson
@@ -55,16 +53,16 @@ class GetFindCourseAcceptanceTestRestAssure : BaseAcceptanceTest() {
 
     companion object {
         private val now = LocalDateTime.parse("2022-08-31T09:07:36")
-        private val course = Course(
-            CourseId.fromString("f2fe1e4e-1e8f-493b-ac67-2c88090cae0a"),
-            CourseName("Saved course"),
-            now
+        private val course = CourseMother.sample(
+            id = "f2fe1e4e-1e8f-493b-ac67-2c88090cae0a",
+            name = "Saved course",
+            createdAt = now
         )
         private val expectedCourseResponse = """
                 {
-                    "id": "f2fe1e4e-1e8f-493b-ac67-2c88090cae0a",
-                    "name": "Saved course",
-                    "createdAt": "2022-08-31T09:07:36"
+                    "id": "${course.id.value}",
+                    "name": "${course.name.value}",
+                    "createdAt": "$now"
                 }
             """.trimIndent()
     }
