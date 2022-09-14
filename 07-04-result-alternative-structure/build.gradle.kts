@@ -64,6 +64,7 @@ dependencies {
     // rest-assured 4.5.1 por problemas de compatibilidad https://github.com/rest-assured/rest-assured/issues/1612
     testIntegrationImplementation("io.rest-assured:rest-assured:4.5.1")
     testIntegrationImplementation("io.rest-assured:kotlin-extensions:4.5.1")
+    testIntegrationImplementation(project(":common-test"))
 }
 
 tasks.withType<KotlinCompile> {
