@@ -4,6 +4,9 @@ import com.codely.shared.database.PostgresTestUtils
 import com.codely.shared.database.TestConfig
 import io.mockk.unmockkAll
 import io.restassured.RestAssured
+import java.io.File
+import javax.annotation.PostConstruct
+import javax.annotation.PreDestroy
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.springframework.beans.factory.annotation.Autowired
@@ -15,9 +18,6 @@ import org.springframework.test.context.ActiveProfiles
 import org.testcontainers.containers.DockerComposeContainer
 import org.testcontainers.containers.wait.strategy.Wait
 import org.testcontainers.junit.jupiter.Testcontainers
-import java.io.File
-import javax.annotation.PostConstruct
-import javax.annotation.PreDestroy
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc

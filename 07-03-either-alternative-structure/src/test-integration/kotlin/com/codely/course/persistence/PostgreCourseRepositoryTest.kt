@@ -3,19 +3,15 @@ package com.codely.course.persistence
 import com.codely.common.Left
 import com.codely.common.Right
 import com.codely.common.course.CourseMother
-import com.codely.course.domain.Course
-import com.codely.course.domain.CourseCannotBeFoundError
 import com.codely.course.domain.CourseId
-import com.codely.course.domain.CourseName
 import com.codely.course.domain.CourseNotFoundError
 import com.codely.course.infrastructure.persistence.PostgreCourseRepository
 import com.codely.shared.persistence.BaseIntegrationTest
+import kotlin.test.assertEquals
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
-import java.time.LocalDateTime
-import kotlin.test.assertEquals
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)

@@ -1,12 +1,12 @@
 package com.codely.course.acceptance
 
+import com.codely.shared.acceptance.BaseAcceptanceTest
 import io.restassured.http.ContentType
 import io.restassured.module.kotlin.extensions.Given
 import io.restassured.module.kotlin.extensions.Then
 import io.restassured.module.kotlin.extensions.When
 import org.junit.jupiter.api.Test
 import org.springframework.http.HttpStatus
-import com.codely.shared.acceptance.BaseAcceptanceTest
 
 class PostCreateCourseAcceptanceTestRestAssure : BaseAcceptanceTest() {
 

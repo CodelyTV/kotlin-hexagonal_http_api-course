@@ -1,10 +1,9 @@
 package com.codely.course.acceptance
 
 import com.codely.common.course.CourseMother
-import com.codely.course.domain.Course
-import com.codely.course.domain.CourseId
-import com.codely.course.domain.CourseName
 import com.codely.course.infrastructure.persistence.PostgreCourseRepository
+import com.codely.shared.acceptance.BaseAcceptanceTest
+import com.codely.shared.acceptance.isEqualToJson
 import io.restassured.http.ContentType
 import io.restassured.module.kotlin.extensions.Extract
 import io.restassured.module.kotlin.extensions.Given
@@ -15,8 +14,6 @@ import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.test.context.jdbc.Sql
-import com.codely.shared.acceptance.BaseAcceptanceTest
-import com.codely.shared.acceptance.isEqualToJson
 
 class GetFindCourseAcceptanceTestRestAssure : BaseAcceptanceTest() {
 
