@@ -7,5 +7,5 @@ RUN gradle build
 FROM openjdk:11.0.16-jre-slim
 WORKDIR /app
 EXPOSE 8080
-COPY --from=builder /builder/build/libs/05-03-controller-unit-test-0.0.1.jar .
-CMD ["java", "-jar", "05-03-controller-unit-test-0.0.1.jar"]
+COPY --from=builder /builder/build/libs/08-01-graceful-shutdown-alternative-structure-0.0.1.jar .
+CMD ["java", "-jar", "08-01-graceful-shutdown-alternative-structure-0.0.1.jar"]
