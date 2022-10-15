@@ -1,13 +1,11 @@
 package com.codely.course.infrastructure.persistence
 
-import com.codely.course.domain.Course
-import com.codely.course.domain.CourseRepository
+import com.codely.course.domain.course.Course
+import com.codely.course.domain.course.CourseRepository
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
 
-class PostgreCourseRepository(
-    private val jdbcTemplate: NamedParameterJdbcTemplate
-) : CourseRepository {
+class PostgreCourseRepository(private val jdbcTemplate: NamedParameterJdbcTemplate) : CourseRepository {
 
     override fun save(course: Course) {
         MapSqlParameterSource()
