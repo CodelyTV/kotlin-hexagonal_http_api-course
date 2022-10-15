@@ -18,7 +18,7 @@ class PostCreateCourseController(private val courseCreator: CourseCreator) {
     ): ResponseEntity<String> {
         return try {
             courseCreator.create(request.id, request.name)
-            ResponseEntity.ok().body("")
+            ResponseEntity.ok().build()
         } catch (exception: Throwable) {
             when (exception) {
                 is InvalidCourseIdException,
