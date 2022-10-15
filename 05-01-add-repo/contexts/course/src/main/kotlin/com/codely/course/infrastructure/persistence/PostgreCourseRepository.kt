@@ -5,9 +5,7 @@ import com.codely.course.domain.CourseRepository
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
 
-class PostgreCourseRepository(
-    private val jdbcTemplate: NamedParameterJdbcTemplate
-) : CourseRepository {
+class PostgreCourseRepository(private val jdbcTemplate: NamedParameterJdbcTemplate) : CourseRepository {
 
     override fun save(course: Course) {
         MapSqlParameterSource()
@@ -16,7 +14,7 @@ class PostgreCourseRepository(
             .addValue("createdAt", course.createdAt)
             .let { params ->
                 jdbcTemplate.update(
-                    "INSERT INTO course (id, name, created_at) VALUES (:id,:name,:createdAt)",
+                "INSERT INTO course (id, name, created_at) VALUES (:id,:name,:createdAt)",
                     params
                 )
             }
