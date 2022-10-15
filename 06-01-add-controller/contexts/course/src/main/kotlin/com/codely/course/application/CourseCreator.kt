@@ -9,7 +9,8 @@ import java.time.LocalDateTime
 class CourseCreator(private val repository: CourseRepository) {
 
     fun create(id: String, name: String) {
-        Course(CourseId.fromString(id), CourseName(name), LocalDateTime.now()).let {
+        Course(CourseId.fromString(id), CourseName(name), LocalDateTime.now())
+        .let {
             repository.save(it)
         }
     }
