@@ -1,11 +1,11 @@
 package com.codely.course.application
 
-import com.codely.course.domain.course.Course
-import com.codely.course.domain.course.CourseId
-import com.codely.course.domain.course.CourseName
-import com.codely.course.domain.course.CourseRepository
-import com.codely.course.domain.course.InvalidCourseIdException
-import com.codely.course.domain.course.InvalidCourseNameException
+import com.codely.course.domain.Course
+import com.codely.course.domain.CourseId
+import com.codely.course.domain.CourseName
+import com.codely.course.domain.CourseRepository
+import com.codely.course.domain.InvalidCourseIdException
+import com.codely.course.domain.InvalidCourseNameException
 import com.codely.shared.BaseTest
 import io.mockk.mockk
 import io.mockk.verify

@@ -39,6 +39,9 @@ val integrationTest = task<Test>("integrationTest") {
 }
 
 dependencies {
+    // internal dependencies
+    implementation(project(":contexts:course"))
+
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
@@ -60,6 +63,7 @@ dependencies {
     // rest-assured 4.5.1 por problemas de compatibilidad https://github.com/rest-assured/rest-assured/issues/1612
     testIntegrationImplementation("io.rest-assured:rest-assured:4.5.1")
     testIntegrationImplementation("io.rest-assured:kotlin-extensions:4.5.1")
+    testIntegrationImplementation(project(":common-test"))
 }
 
 tasks.withType<KotlinCompile> {
