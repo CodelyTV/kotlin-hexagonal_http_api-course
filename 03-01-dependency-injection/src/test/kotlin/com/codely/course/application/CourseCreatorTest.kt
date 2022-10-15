@@ -22,7 +22,8 @@ class CourseCreatorTest : BaseTest() {
     @BeforeEach
     fun setUp() {
         courseRepository = mockk(relaxUnitFun = true)
-        courseCreator = CourseCreator(courseRepository)
+        clock = mockk()
+        courseCreator = CourseCreator(courseRepository, clock)
     }
 
     @Test

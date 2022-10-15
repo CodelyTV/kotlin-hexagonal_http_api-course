@@ -1,5 +1,6 @@
 package com.codely.shared
 
+import com.codely.course.domain.Clock
 import io.mockk.every
 import io.mockk.mockkStatic
 import io.mockk.unmockkAll
@@ -7,12 +8,10 @@ import java.time.LocalDateTime
 import org.junit.jupiter.api.AfterEach
 
 open class BaseTest {
+    protected lateinit var clock: Clock
 
     protected fun givenFixedDate(fixedDatetime: LocalDateTime) {
-        mockkStatic(LocalDateTime::class)
-        every {
-            LocalDateTime.now()
-        } returns fixedDatetime
+       every { clock.now() } returns fixedDatetime
     }
 
     @AfterEach
