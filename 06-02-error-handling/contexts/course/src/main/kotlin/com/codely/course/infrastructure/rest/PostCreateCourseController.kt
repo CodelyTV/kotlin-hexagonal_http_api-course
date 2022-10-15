@@ -35,6 +35,6 @@ class PostCreateCourseController(private val courseCreator: CourseCreator) {
 }
 
 data class CreateCourseRequest(
-    val id: String,
-    val name: String
+    val id: String = "",
+    val name: String = ""
 )

@@ -1,3 +1,3 @@
-rootProject.name = "06-02-rest-assure"
+rootProject.name = "07-02-rest-assure"
 
 include("contexts:course")
