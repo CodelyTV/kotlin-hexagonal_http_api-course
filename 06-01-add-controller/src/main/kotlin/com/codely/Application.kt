@@ -5,7 +5,7 @@ import org.springframework.boot.runApplication
 import org.springframework.context.annotation.ComponentScan
 
 @SpringBootApplication
-@ComponentScan("com.codely")
+@ComponentScan("com.codely.*")
 class Application
 
 fun main(args: Array<String>) {
