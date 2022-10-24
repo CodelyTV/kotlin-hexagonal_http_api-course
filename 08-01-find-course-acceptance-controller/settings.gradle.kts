@@ -1,4 +1,4 @@
-rootProject.name = "07-01-find-course-acceptance-controller"
+rootProject.name = "08-01-find-course-acceptance-controller"
 
 include("contexts:course")
 include("common-test")

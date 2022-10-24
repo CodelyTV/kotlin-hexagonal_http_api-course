@@ -7,5 +7,5 @@ RUN gradle assemble
 FROM openjdk:11.0.16-jre-slim
 WORKDIR /app
 EXPOSE 8080
-COPY --from=builder /builder/build/libs/07-01-find-course-acceptance-controller-0.0.1.jar .
-CMD ["java", "-jar", "07-01-find-course-acceptance-controller-0.0.1.jar"]
+COPY --from=builder /builder/build/libs/08-01-find-course-acceptance-controller-0.0.1.jar .
+CMD ["java", "-jar", "08-01-find-course-acceptance-controller-0.0.1.jar"]
