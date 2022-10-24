@@ -7,6 +7,6 @@ RUN gradle build
 FROM openjdk:11.0.16-jre-slim
 WORKDIR /app
 EXPOSE 8080
-COPY --from=builder /builder/build/libs/02-03-create-course-with-tests-0.0.1.jar .
-CMD ["java", "-jar", "02-03-create-course-with-tests-0.0.1.jar"]
+COPY --from=builder /builder/build/libs/03-01-create-course-with-tests-0.0.1.jar .
+CMD ["java", "-jar", "03-01-create-course-with-tests-0.0.1.jar"]
 

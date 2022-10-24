@@ -1,3 +1,3 @@
-rootProject.name = "03-01-dependency-injection"
+rootProject.name = "04-01-dependency-injection"
 
 include("contexts:course")

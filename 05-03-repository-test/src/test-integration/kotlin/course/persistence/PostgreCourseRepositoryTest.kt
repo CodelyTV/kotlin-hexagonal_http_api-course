@@ -4,18 +4,13 @@ import com.codely.course.domain.course.Course
 import com.codely.course.domain.course.CourseId
 import com.codely.course.domain.course.CourseName
 import com.codely.course.infrastructure.persistence.PostgreCourseRepository
-import com.codely.shared.Application
 import java.sql.ResultSet
 import java.time.LocalDateTime
-import java.util.UUID
 import kotlin.test.assertEquals
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.RowMapper
-import org.springframework.test.context.ContextConfiguration
 import shared.persistence.BaseIntegrationTest
 
 class PostgreCourseRepositoryTest : BaseIntegrationTest() {

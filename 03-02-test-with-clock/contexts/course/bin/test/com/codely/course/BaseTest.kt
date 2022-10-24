@@ -1,4 +1,4 @@
-package com.codely
+package com.codely.course
 
 import io.mockk.every
 import io.mockk.mockkStatic
@@ -9,7 +9,7 @@ import org.junit.jupiter.api.AfterEach
 open class BaseTest {
 
     protected fun givenFixedDate(fixedDatetime: LocalDateTime) {
-       mockkStatic(LocalDateTime::class)
+        mockkStatic(LocalDateTime::class)
         every {
             LocalDateTime.now()
         } returns fixedDatetime

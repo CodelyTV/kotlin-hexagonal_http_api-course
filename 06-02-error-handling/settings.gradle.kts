@@ -1,3 +1,3 @@
-rootProject.name = "05-02-error-handling"
+rootProject.name = "06-02-error-handling"
 
 include("contexts:course")
