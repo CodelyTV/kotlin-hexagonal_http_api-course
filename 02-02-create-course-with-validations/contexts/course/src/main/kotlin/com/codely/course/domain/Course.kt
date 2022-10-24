@@ -26,11 +26,12 @@ data class CourseName(val value: String) {
 }
 
 data class Course private constructor(
-    val id: CourseId, val name: CourseName, val createdAt: LocalDateTime
+    val id: CourseId,
+    val name: CourseName,
+    val createdAt: LocalDateTime
 ) {
     companion object {
         fun from(id: String, name: String, createdAt: LocalDateTime) =
             Course(CourseId.fromString(id), CourseName(name), createdAt)
-
     }
 }
