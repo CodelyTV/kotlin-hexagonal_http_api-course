@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  Code examples from the [API HTTP en Kotlin aplicando Arquitectura Hexagonal course](https://pro.codely.com/library/api-http-en-kotlin-aplicando-arquitectura-hexagonal-189116)</strong>.
+  Code examples from the <a href="https://pro.codely.com/library/api-http-en-kotlin-aplicando-arquitectura-hexagonal-189116">API HTTP en Kotlin aplicando Arquitectura Hexagonal course</a></strong>.
   <br />
   <br />
   Take a look, play and have fun with this.
